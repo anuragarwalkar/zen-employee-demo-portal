@@ -1,0 +1,25 @@
+<!-- Sign in form -->
+<form class="signin-form" >
+  <h1 class="main-heading">Employee sign in</h1>
+  <!-- Login Logo -->
+  <img class="main-logo" 
+  src="assets/images/Zensar_Logo.jpg" type="jpg">
+  <!-- Email id input field -->
+  <input class="form-control" 
+  type="email" placeholder="Email address" 
+  name="user" [(ngModel)]="user">
+  <!-- password input field -->
+  <input class="form-control" 
+  type="password" (keyup.enter)="logInUser()" 
+  placeholder="Password" name="password" [(ngModel)]="password">
+  <!-- Login button -->
+  <button type="button" class="btn btn-primary btn-block" (click)="logInUser()">Sign in</button>
+  <div class="alert alert-danger credentials" 
+  *ngIf="checkCredentials">Incorrect username or password</div>
+  <div class="alert alert-danger credentials" 
+  *ngIf="httpError">404 Server error</div>
+  <!-- Text elements -->
+  <p class="no-account-msg">Don't have an account?</p>
+  <p routerLink="/Sign-up" class="signup-link">sign up now</p>
+  <P class="copyright-text">&copy; 2018-2019</P>
+</form>

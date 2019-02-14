@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+*{
+    text-align: center;
+}
+.signin-form{
+    width: 100%;
+    max-width: 330px;
+    height: 400px;
+    margin: auto;
+    padding: 15px;
+}
+
+
+.main-logo{
+    display: block;
+    width: 200px;
+    height:auto;
+    margin: 0 auto 20px auto;
+}
+
+.copyright-text{
+    text-align: center;
+}
+
+.main-heading{
+    font-family:'Roboto Condensed';
+    font-size: 25px;
+    margin-bottom: none;
+    margin-top:180px;
+}
+
+input[type="email"] {
+    margin-bottom: 5px;
+}
+
+input[type="password"]{
+    margin-bottom: 20px;
+}
+
+.signup-link{
+    text-transform: uppercase;
+    color: #007bff;
+    cursor: pointer;
+}
+
+.no-account-msg{
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.credentials{
+    padding: 2px !important;
+    margin-top: 5px;
+}

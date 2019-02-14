@@ -1,0 +1,9 @@
+input{
+    text-transform: uppercase;
+} 
+
+.sub-success{
+    font-family: 'Roboto Condensed';
+    text-align: center;
+
+}

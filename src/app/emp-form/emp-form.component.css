@@ -1,0 +1,9 @@
+input{
+    text-transform: uppercase;
+}   
+
+label::after{
+    content: "*"; 
+    color:red;
+}
+

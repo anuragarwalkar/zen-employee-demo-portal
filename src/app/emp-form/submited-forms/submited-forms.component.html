@@ -1,0 +1,79 @@
+<!-- app-login reuseable component -->
+<app-nav-bar></app-nav-bar>
+
+<!-- Main Table -->
+<div class="crud-form">
+ <button class="btn btn-success add-new" 
+ routerLink="/Emp-form">+ Add New Employee</button> 
+<!-- Bootstrap table -->
+<div class="table-responsive">
+ <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Gender</th>
+      <th scope="col">DOB</th>
+      <th scope="col">Position</th>
+      <th scope="col">Address</th>
+      <th scope="col">State</th>
+      <th scope="col">City</th>
+      <th scope="col">PIN</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let empFormData of empFormArray">
+      <th scope="row">{{ empFormData.id }}</th>
+      <td>{{ empFormData.firstName | uppercase }}</td>
+      <td>{{ empFormData.lastName | uppercase }}</td>
+      <td>{{ empFormData.gender | uppercase }}</td>
+      <td>{{ empFormData.dob | date }}</td>
+      <td>{{ empFormData.position | uppercase}}</td>
+      <td>{{ empFormData.address |uppercase}}</td>
+      <td>{{ empFormData.state | uppercase}}</td>
+      <td>{{ empFormData.city | uppercase}}</td>
+      <td>{{ empFormData.pin }}</td>
+      <td>{{ empFormData.mobile }}</td>
+      <td><button class="btn btn-success btn-sm" 
+        [routerLink]="['/EditUser', empFormData.id]">Edit</button></td>
+        <td><button type="button" 
+          class="btn btn-danger btn-sm" data-toggle="modal"
+          data-target="#exampleModalCenter" (click)="deleteConfirmation(empFormData)"
+          >Delete</button>
+        </td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+
+<!-- Bootstrap Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Delete</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              Are you sure you want to delete this item <strong>permanently</strong>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" 
+            data-dismiss="modal">Close</button>
+            <button type="button" data-dismiss="modal" (click)="deleteData()" 
+            class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+</div>

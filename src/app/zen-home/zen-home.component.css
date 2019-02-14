@@ -1,0 +1,14 @@
+.emp-reg-link{
+    margin-top: 20px;
+    background: #f4f4f6;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;    
+}
+
+h4{
+    color: #203668;
+    margin-top: 18px;
+    font-family:'Lato';
+}

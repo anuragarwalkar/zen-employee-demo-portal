@@ -1,0 +1,162 @@
+<!-- app-login reuseable component -->
+<app-nav-bar></app-nav-bar>
+
+<div class="div-pad">
+<h3>Update user</h3>
+<hr>
+<form id="editEmployeeForm" #editEmployeeForm="ngForm" 
+(ngSubmit)="editForm(editEmployeeForm.value)">
+    
+<!-- div-pad to add padding in body -->
+
+<div class="div-pad">
+
+<!-- form personal data code -->
+<p>Personal Data</p>
+    <div class="form-row">  
+        <div class="form-group col-md-2">
+    <!-- First Name Input Filed Label   -->
+    <label for="firstName" >First Name</label>
+
+   <!-- First Name Input Filed   -->
+    <input required pattern="[a-zA-Z ]*" minlength="3" maxlength="10" 
+    ngModel [(ngModel)]="data.firstName" name="firstName" 
+    #firstName="ngModel" 
+    type="text" class="form-control"
+    placeholder="First Name" id="firstName"> 
+   
+    <!-- First Name Input Field Data Validation  -->
+    <div *ngIf="!firstName.valid && firstName.touched" 
+    class="alert-danger">
+    
+    <div *ngIf="firstName.errors.required">First Name is Required</div>
+            <div *ngIf="firstName.errors.minlength?.requiredLength"
+            >First Name at least 
+            {{ firstName.errors.minlength.requiredLength }}
+             charachter </div>
+             <div *ngIf="firstName.errors?.pattern"
+             >Numbers/Special charachters are not allowed</div>
+        </div>
+        </div>
+   
+    <div class="form-group col-md-2">
+    <!-- Last Name Input Filed Label   -->          
+        <label for="lastName">Last Name</label>
+        <!-- Last Name Input Filed   -->
+        <input required ngModel [(ngModel)]="data.lastName" minlength="3" 
+        maxlength="10" name="lastName"  class="form-control" id="lastName" 
+        placeholder="Last Name" pattern="[a-zA-Z ]*" #lastName="ngModel">
+        <!-- Last Name Input Filed Data Validation   -->
+        <div class="alert-danger" *ngIf="!lastName.valid && lastName.touched">
+            <div *ngIf="lastName.errors.required">Last name is required</div>
+            <div *ngIf="lastName.errors.minlength?.requiredLength">Last Name at least 
+                {{ lastName.errors.minlength.requiredLength }} charachter</div>
+            <div *ngIf="lastName.errors?.pattern"
+            >Numbers/Special charachters are not allowed </div>
+        </div>
+    </div>
+
+    <div class="form-group col-md-2">
+        <!-- Gender Label   --> 
+        <label>Gender</label>
+        <!-- Gender Select   --> 
+        <select ngModel [(ngModel)]="data.gender" name="gender" class="form-control">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+    </div>
+    
+    <div class="form-group col-md-2">
+         <!-- Date of birth Label   --> 
+        <label for="dob">Date Of Birth</label>
+         <!-- Date of birth input field   --> 
+        <input required ngModel [(ngModel)]="data.dob" 
+        name="dob" type="date" class="form-control">
+    </div>
+
+    </div>
+    
+   
+    <div class="form-row">
+    <div class="form-group col-md-4">
+    <!-- Position input field Label  --> 
+    <label for="positionTitle">Position Title</label>
+    <!-- Position input field  -->     
+    <input required ngModel [(ngModel)]="data.position" 
+    name="position" class="form-control" placeholder="Position Title">    
+    </div>
+     </div>
+        <br/>
+    
+        <!-- form your address section -->
+        
+<p>Your Address</p>
+              
+<div class="form-row">           
+    <div class="form-group col-md-6">
+    <!-- Address input field Label  --> 
+    <label for="address">Address</label>
+    <!-- Address input field -->
+    <input required ngModel [(ngModel)]="data.address" 
+    name="address"  class="form-control" placeholder="Address">
+    </div>
+    </div>
+
+<div class="form-row">
+        <div class="form-group col-md-2">
+            <!-- State input field -->
+            <label for="state">State</label>
+            <select required ngModel [(ngModel)]="data.state" 
+            name="state" class="form-control">
+                <option *ngFor="let state of stateLabels" 
+                [value]="state.id">{{ state.name}}</option>
+                </select>
+        </div>
+        
+        <div class="form-group col-md-2">
+            <!-- City input field -->
+            <label for="state">City</label>
+            <input required ngModel [(ngModel)]="data.city" 
+            name="city"  class="form-control" placeholder="City">
+        </div>
+        <div class="form-group col-md-2">
+            <!-- Pincode input field -->
+            <label  for="pincode">Pincode</label>
+            <input ngModel [(ngModel)]="data.pin" #pin="ngModel"  
+            required pattern="[0-9]*" 
+            minlength="6" maxlength="6"
+            ngModel name="pin" class="form-control" 
+            placeholder="Pincode">
+        <!-- Pincode data validation -->
+        <div class="alert-danger" *ngIf="!pin.valid && pin.touched">
+            <div *ngIf="pin.errors?.pattern">PIN Code is not valid.</div>
+        </div>
+    </div>
+</div>
+    
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <!-- Mobile number input field -->
+            <label for="mobileNumber">Mobile Number</label>
+            <input required type="text" ngModel 
+            minlength="10" maxlength="10" name="mobile" 
+            [(ngModel)]="data.mobile" #mobile="ngModel"  
+            placeholder="Mobile Number" class="form-control"
+            pattern="[0-9]*">
+
+            <!-- Mobile number data validation -->
+        <div class="alert-danger" *ngIf="!mobile.valid && mobile.touched">
+            <div *ngIf="mobile.errors.minlength?.requiredLength"
+            >Please input 10 digit number </div>
+            <div *ngIf="mobile.errors?.pattern"
+            >Latters/Special charachter are not allowed</div>
+        </div>
+        
+        </div>
+    </div>   
+
+    <br>
+        <button  type="submit" class="btn btn-success" >Update</button>
+    </div>
+    </form>
+</div>

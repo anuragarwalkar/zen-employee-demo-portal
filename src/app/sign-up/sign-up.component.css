@@ -1,0 +1,27 @@
+p{
+    text-align: center;
+}
+
+
+.sign-up-form{
+    width: 100%;
+    max-width:330px;
+    margin: auto;
+}
+
+#cnf-pass{
+    margin-bottom: 10px;
+}
+
+.sign-up-msg{
+    margin-top: 100px;
+    font-family: 'lato';
+    text-align: center;
+}
+
+.sign-in-ins{
+    margin-top: 10px;
+    color:#007bff; 
+    cursor: pointer;
+    text-align: center;
+}

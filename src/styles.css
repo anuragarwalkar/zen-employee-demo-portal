@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+.form-control.ng-dirty.ng-invalid{
+    border: 2px solid red;
+}
+
+.form-control.ng-touched.ng-invalid{
+    border: 2px solid red; 
+}
+
+
+.div-pad{
+    padding: 15px;
+    }
+
+/* to show cursor as not allowed in red */
+.btn:disabled{
+    cursor: not-allowed;
+}    
+
