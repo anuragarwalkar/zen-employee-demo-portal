@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
     
 
   ngOnInit() {
-    this.http.get("../assets/loginDB.json")
+    this.http.get("http://10.76.170.180:5500/zenCredentials")
     .subscribe((response)=>{
 
       // console.log(response)

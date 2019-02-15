@@ -24,7 +24,7 @@ export class SignUpComponent implements OnInit {
 
 
 //URL JSON
-private url= '../assets/loginDB.json' 
+private url= "http://10.76.170.180:5500/zenCredentials" 
 
 
   constructor(private http: HttpClient) { }
@@ -76,7 +76,7 @@ private url= '../assets/loginDB.json'
   
     
   ngOnInit() {
-    this.http.get('../assets/loginDB.json')
+    this.http.get(this.url)
     .subscribe((response)=>{
       this.chcekDB = response
       console.log(this.chcekDB)

@@ -17,7 +17,7 @@ export class SubmitedFormsComponent implements OnInit {
   }
 
 
-  private url = "http://localhost:5000/employeeFormData";
+  private url = "http://10.76.170.180:5800/employeeFormData";
 
   constructor(private http : HttpClient) {
    

@@ -25,7 +25,7 @@ export class EmpFormComponent implements OnInit {
   addObject : object ={};
 
   //JSON server URL
-  private url = "http://localhost:5000/employeeFormData";
+  private url = "http://10.76.170.180:5800/employeeFormData";
 
   //dependancies injection
   constructor(private http : HttpClient, 
