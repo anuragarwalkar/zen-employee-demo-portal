@@ -61,9 +61,9 @@ export class LoginComponent implements OnInit {
       this.credentialsArray = response;
      // console.log(this.credentialsArray)
     }
-    // ,()=>{
-    //   this.httpError =true
-    // }
+    ,()=>{
+      this.httpError =true
+    }
     
     )
 
