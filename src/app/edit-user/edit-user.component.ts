@@ -16,7 +16,7 @@ export class EditUserComponent implements OnInit {
   
   forms: any =[];
   editedForm: object ={};
-  private url = 'http://localhost:5000/employeeFormData';
+  private url = "http://10.76.170.180:5800/employeeFormData";
 
 
   stateLabels =[

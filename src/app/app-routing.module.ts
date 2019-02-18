@@ -11,7 +11,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 const routes: Routes = [
   {path:'', component:LoginComponent},
   {path:'Nav-bar', component:NavBarComponent, canActivate:[AuthGuard]},
-  {path:'Sign-up', component:SignUpComponent,  canActivate:[AuthGuard]},
+  {path:'Sign-up', component:SignUpComponent},
   {path:'Emp-form', component: EmpFormComponent, canActivate:[AuthGuard]},
   {path:'Zen-home', component:ZenHomeComponent, canActivate:[AuthGuard]},
   {path:'Submited-forms', component:SubmitedFormsComponent, canActivate:[AuthGuard]},

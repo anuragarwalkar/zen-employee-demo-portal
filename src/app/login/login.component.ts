@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     
     logInUser(){
 
-      console.log(this.user, this.password)
+      // console.log(this.user, this.password)
       
       for (let i in this.credentialsArray) {
         // console.log(this.credentialsArray[i].email, this.password === this.credentialsArray[i].password )

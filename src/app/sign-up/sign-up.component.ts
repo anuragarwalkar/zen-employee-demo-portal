@@ -79,7 +79,6 @@ private url= "http://10.76.170.180:5500/zenCredentials"
     this.http.get(this.url)
     .subscribe((response)=>{
       this.chcekDB = response
-      console.log(this.chcekDB)
     })
   }
 }
