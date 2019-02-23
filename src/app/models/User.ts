@@ -1,8 +1,10 @@
 export interface User{
-     firstName: string;
-      lastName: string;
-      email:string;
-      position: string;
-      address: string;
-      mobile: string;
+      id?:string;
+      firstName?: string;
+      lastName?: string;
+      email?:string;
+      position?: string;
+      address?: string;
+      mobile?: string;
+      hide?:boolean;
 }

@@ -1,9 +1,15 @@
 <!-- reuseable component  -->
 <app-nav-bar></app-nav-bar>
-<!-- home page -->
 <div class="container">
-   <h4>Welcome, {{  message | uppercase }}</h4>
-    <div class="emp-reg-link" routerLink="/empform">
-       <a> <i class="fa fa-user"></i> Employee Registration Form</a>
-    </div>    
-    </div>
+<div class="row">
+   <div class="col-md-10">
+   <app-submited-forms></app-submited-forms>
+</div>
+<div class="col-md-2">
+   <button routerLink="/empform" 
+   class="btn btn-primary btn-sm mt-4">
+   <i class="fa fa-plus"></i> Add Employee</button>
+</div>
+</div>
+</div>
+

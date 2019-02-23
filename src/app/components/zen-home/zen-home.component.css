@@ -9,10 +9,13 @@
 
 h4{
     color: #203668;
-    margin-top: 18px;
     font-family:'Lato';
 }
 
-i{
+.employees{
     font-size: 40px;
+}
+
+p{
+    margin-bottom: 5px;
 }

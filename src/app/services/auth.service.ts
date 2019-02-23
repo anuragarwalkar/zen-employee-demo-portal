@@ -1,34 +1,35 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { User } from '../models/User';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
-  private usernameSource = new BehaviorSubject<string>("Guest");
-  currentUser = this.usernameSource.asObservable();
-
-
-  displayUserName(message: string){
-    this.usernameSource.next(message);
-  }
-
-  //router authentication
-
-  private loggedInStatus = false;
-
-
-  setLoggedIn(value: boolean){
-    this.loggedInStatus =value;
-  }
   
-  
-  get isLoggedIn(){
-    return this.loggedInStatus
-  }
+  employeesCollection: AngularFirestoreCollection<User>;
+  employeeDoc: AngularFirestoreDocument<User>;
+  employees:Observable<User[]>
+  employee:Observable<User>
 
 
+  constructor(private afs:AngularFirestore) {
+    this.employeesCollection = afs.collection<User>('employees');
+   }
 
-  constructor() { }
+
+   getEmployees():Observable<User[]>{
+     this.employees = this.employeesCollection.snapshotChanges().pipe(
+       map(action => action.map(action=>{
+         const data = action.payload.doc.data() as User;
+         data.id = action.payload.doc.id;
+         return data
+       }))
+     )
+
+     return this.employees
+
+   }
 }

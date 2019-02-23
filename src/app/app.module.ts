@@ -5,7 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { environment } from '../environments/environment'
+import { environment } from '../environments/environment';
+import { FirestoreSettingsToken} from '@angular/fire/firestore';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +15,6 @@ import { ZenHomeComponent } from './components/zen-home/zen-home.component';
 import { SubmitedFormsComponent } from './components/submited-forms/submited-forms.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
-import { AuthService } from './services/auth.service';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
@@ -40,8 +40,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     AngularFireAuthModule,
     AngularFirestoreModule
   ],
-  providers: [HttpClientModule, 
-                  AuthService],
+  providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

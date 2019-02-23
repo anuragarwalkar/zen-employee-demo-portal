@@ -16,17 +16,19 @@ export class EmpFormComponent implements OnInit {
     firstName: '',
       lastName: '',
       email:'',
-      position: 'def',
+      position: 'default',
       address: '',
       mobile: '',
+      hide: true,
   }
 
   positions:Array<{}> =[
-    {value:'def', name:'Select...' },
-    {value:'sd', name:'Software Developer' },
-  {value:'st', name:'Software Tester' },
-  {value:'ne', name:'Network Engineer' },
-  {value:'he', name:'Hardware Engineer' }
+    {value:'default', name:'Select...' },
+    {value:'Software Developer', name:'Software Developer' },
+  {value:'Software Tester', name:'Software Tester' },
+  {value:'Network Engineer', name:'Network Engineer' },
+  {value:'System Administrator', name:'System Administrator' },
+  {value:'Accountant', name:'Accountant' },
 ]
 
   
