@@ -1,0 +1,78 @@
+<!-- app-login reuseable component -->
+<app-nav-bar></app-nav-bar>
+
+<!-- User registration form -->
+<div class="container">
+<h2 class="text-center mt-2">Employee Registration Form</h2>
+<p class="text-center">Please fill in the information requested below in 
+    order to complete the employee registration. Thank you!</p>
+    <a routerLink="/zenhome"><i class="fa fa-arrow-circle-o-left "></i> Back to home</a>
+<hr>
+
+<div class="card">
+    <div class="card-header">
+        Add User       
+    </div>
+<div class="card-body">
+<form #userRegistrationForm="ngForm" 
+(ngSubmit)="onSubmit(userRegistrationForm)">
+<div class="form-group">
+    <label for="firstName">First Name</label>
+    <input type="text" #firstName="ngModel" 
+    [(ngModel)]="user.firstName" name="firstName" 
+    class="form-control">
+</div>
+
+<div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input #lastName="ngModel" name="lastName" 
+    [(ngModel)]="user.lastName" type="text" 
+    class="form-control">
+</div>
+
+<div class="form-group">
+    <label for="email">Email</label>
+    <input #email="ngModel" 
+    [(ngModel)]="user.email" 
+    name="email" type="text" 
+    class="form-control">
+</div>
+
+<div class="form-group">
+<label for="">Address</label>
+<input type="text" class="form-control"
+ name="address" #address="ngModel" 
+ [(ngModel)]="user.address">
+    
+</div>
+
+<div class="form-group">
+    <label for="number">Mobile</label>
+    <input #number="ngModel" name="mobile" 
+    [(ngModel)]="user.mobile" type="text" 
+    class="form-control">
+</div>
+
+<div class="form-group">
+    <label for="position">Position</label>
+    <select #position="ngModel" 
+    [(ngModel)]="user.position" 
+    name="position" class="form-control">
+        <option *ngFor="let position of positions" 
+        value="{{position.value}}">{{position.name}}</option>
+    </select>
+</div>
+
+<div class="radio">
+        <label for="agree">
+            <input required type="checkbox" name="agree">
+        I accept the <a href="https://www.zensar.com/privacy-policy" 
+        target="_blank">Terms of Service.</a>
+        </label>
+    </div>
+
+  <input type="submit" value="Submit" class="btn btn-primary btn-block">  
+</form>
+</div>
+</div>
+</div>

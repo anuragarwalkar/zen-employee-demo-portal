@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate,Router } from '@angular/router';
-import { AuthService } from './auth.service'
+import { AuthService } from './services/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +14,6 @@ constructor (private auth: AuthService, private router : Router){}
       if (this.auth.isLoggedIn){
         return true
     }
-    this.router.navigate([''])
+    this.router.navigate(['/'])
   }
 }
