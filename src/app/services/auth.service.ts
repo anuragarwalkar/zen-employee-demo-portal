@@ -1,35 +1,32 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { User } from '../models/User';
+import { map } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  
-  employeesCollection: AngularFirestoreCollection<User>;
-  employeeDoc: AngularFirestoreDocument<User>;
-  employees:Observable<User[]>
-  employee:Observable<User>
 
+  constructor(private afAuth: AngularFireAuth) { }
 
-  constructor(private afs:AngularFirestore) {
-    this.employeesCollection = afs.collection<User>('employees');
-   }
+  login(email:string, password:string){
+    return new Promise((resolve, reject)=>{
+      this.afAuth.auth.signInWithEmailAndPassword(email, password)
+      .then(userData => resolve(userData), err => reject (err))
+    })
+  }
 
+  getAuth(){
+    return this.afAuth.authState.pipe(map(auth => auth))
+  }
 
-   getEmployees():Observable<User[]>{
-     this.employees = this.employeesCollection.snapshotChanges().pipe(
-       map(action => action.map(action=>{
-         const data = action.payload.doc.data() as User;
-         data.id = action.payload.doc.id;
-         return data
-       }))
-     )
-
-     return this.employees
-
-   }
+  signUp(email:string, password:string){
+    return new Promise((resolve, reject)=>{
+      this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+      .then(userData => resolve(userData), err => reject(err)
+      )
+    })
+    
+  }
 }

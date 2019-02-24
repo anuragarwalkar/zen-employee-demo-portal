@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 
 
 
+
 @Component({
   selector: 'app-zen-home',
   templateUrl: './zen-home.component.html',
@@ -11,6 +12,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ZenHomeComponent {
 
+  constructor(){
 
+  }
 
 }

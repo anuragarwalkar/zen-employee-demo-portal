@@ -25,3 +25,7 @@ p{
     cursor: pointer;
     text-align: center;
 }
+
+.credentials{
+    padding: 2px !important;
+}

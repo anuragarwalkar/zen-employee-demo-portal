@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,5 +9,12 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavBarComponent {
 
+constructor(private afAuth:AngularFireAuth, private router:Router){
 
+}
+
+  logOut(){
+    this.afAuth.auth.signOut()
+    this.router.navigate(['/'])
+  }
 }

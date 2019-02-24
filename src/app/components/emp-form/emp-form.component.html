@@ -1,6 +1,5 @@
 <!-- app-login reuseable component -->
 <app-nav-bar></app-nav-bar>
-
 <!-- User registration form -->
 <div class="container">
 <h2 class="text-center mt-2">Employee Registration Form</h2>
@@ -8,6 +7,7 @@
     order to complete the employee registration. Thank you!</p>
     <a routerLink="/zenhome"><i class="fa fa-arrow-circle-o-left "></i> Back to home</a>
 <hr>
+<flash-messages></flash-messages>
 <div class="card">
     <div class="card-header">
         Add User       
@@ -71,7 +71,7 @@
   
  <div class="invalid-feedback">
         <div *ngIf="address.errors?.required">Address is required</div>
-        <div *ngIf="address.errors?.minlength">Address is not less than 10 charachters</div>
+        <div *ngIf="address.errors.minlength">Address is not less than 10 charachters</div>
     </div>
 </div>
 
@@ -111,7 +111,7 @@
         </label>
     </div>
 
-  <input [disabled]="!userRegistrationForm.valid" type="submit" value="Submit" class="btn btn-primary btn-block">  
+  <input type="submit" value="Submit" class="btn btn-primary btn-block">  
 </form>
 </div>
 </div>

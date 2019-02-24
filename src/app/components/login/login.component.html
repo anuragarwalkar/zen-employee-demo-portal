@@ -1,5 +1,5 @@
 <!-- Sign in form -->
-<form class="signin-form" >
+<form class="signin-form" (submit)="onSubmit()">
   <h1 class="main-heading">Employee sign in</h1>
   <!-- Login Logo -->
   <img class="main-logo" 
@@ -7,17 +7,15 @@
   <!-- Email id input field -->
   <input class="form-control" 
   type="email" placeholder="Email address" 
-  name="user" [(ngModel)]="user">
+  name="user" [(ngModel)]="email">
   <!-- password input field -->
   <input class="form-control" 
-  type="password" (keyup.enter)="logInUser()" 
+  type="password"
   placeholder="Password" name="password" [(ngModel)]="password">
   <!-- Login button -->
-  <button type="button" class="btn btn-primary btn-block" (click)="logInUser()">Sign in</button>
-  <div class="alert alert-danger credentials" 
-  *ngIf="checkCredentials">Incorrect username or password</div>
-  <div class="alert alert-danger credentials" 
-  *ngIf="httpError">404 Server error</div>
+  <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+  <div *ngIf="checkCredentials" class="alert alert-danger credentials" 
+  >{{errorMessage}}</div>
   <!-- Text elements -->
   <p class="no-account-msg">Don't have an account?</p>
   <p routerLink="/signup" class="signup-link">sign up now</p>

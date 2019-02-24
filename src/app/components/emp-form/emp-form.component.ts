@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {  Router } from '@angular/router';
 import { User } from 'src/app/models/User';
+import { FlashMessagesService } from 'angular2-flash-messages';
+import { EmployeeService } from 'src/app/services/employee.service';
 
 
 @Component({
@@ -22,6 +24,13 @@ export class EmpFormComponent implements OnInit {
       hide: true,
   }
 
+
+  constructor(private flashMessage: FlashMessagesService, 
+    private employeeService:EmployeeService,
+    private router:Router){
+
+  }
+
   positions:Array<{}> =[
     {value:'default', name:'Select...' },
     {value:'Software Developer', name:'Software Developer' },
@@ -34,9 +43,20 @@ export class EmpFormComponent implements OnInit {
   
 
   onSubmit({value, valid}: {value:User,valid:boolean}){
-    console.log(value, valid)
+    if(!valid){
+      this.flashMessage.show('Please fill out the form correctly', {
+        cssClass: 'alert-danger', timeout:4000
+      });
+    }else{
 
-    this.form.reset();
+      this.employeeService.addEmployee(value);
+
+      this.flashMessage.show('New Employee added', {
+        cssClass:'alert-success', timeout:5000
+      });
+
+      // this.router.navigate(['/zenhome'])
+    }
   }
   
   ngOnInit() {

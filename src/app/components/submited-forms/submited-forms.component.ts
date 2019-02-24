@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
 import { User } from '../../models/User';
+import { EmployeeService } from 'src/app/services/employee.service';
 
 @Component({
   selector: 'app-submited-forms',
@@ -12,7 +12,7 @@ export class SubmitedFormsComponent implements OnInit{
   employees:User[];
   welcomeUser:string = 'Anurag';
 
-  constructor(private authService:AuthService){
+  constructor(private employeeService:EmployeeService){
 
   }
 
@@ -25,7 +25,7 @@ export class SubmitedFormsComponent implements OnInit{
   }
   ngOnInit() {
 
-    this.authService.getEmployees().subscribe(res =>{
+    this.employeeService.getEmployees().subscribe(res =>{
       this.employees = res;
     })
     

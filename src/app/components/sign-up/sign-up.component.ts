@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -8,4 +9,15 @@ import {HttpClient} from '@angular/common/http';
 })
 export class SignUpComponent {
  
+  constructor(private authService:AuthService, private router:Router){
+
+  }
+
+  createUser({value, valid}){
+    this.authService.signUp(value.email, value.cnfPassword).then(()=>{
+      this.router.navigate(['/zenhome']).catch(err=>{
+        console.log(err)
+      })
+    })
+  }
 }

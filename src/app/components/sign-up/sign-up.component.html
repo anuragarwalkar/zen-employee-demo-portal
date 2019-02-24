@@ -1,16 +1,13 @@
 <div class="sign-up-form">
-  <form class="form-group" #signUpForm="ngForm" 
-  (ngSubmit)="createUser(signUpForm.value)">
+  <form #signup="ngForm" class="form-group" 
+  (ngSubmit)="createUser(signup)">
  <!-- Sign Up form -->
     <h1 class="sign-up-msg">Sign up</h1>
     <p>Please fill the form to create an account</p>
-    <p class="text-success" *ngIf="accountStatus">Your account is sucessfully created</p>
-    <p class="text-danger" *ngIf="duplicateEmail">Email already exists</p>
+    <!-- <p class="text-success" *ngIf="accountStatus">Your account is sucessfully created</p>
+    <p class="text-danger" *ngIf="duplicateEmail">Email already exists</p> -->
     <!-- <p class="text-danger" *ngIf="validForm">Form is not <strong>valid</strong></p> -->
     <hr>
-    <label for="text"><b>Full Name</b></label>
-    <input required ngModel name="yourName" 
-    class="form-control" placeholder="Your Name" type="text">
     <label for="email"><b>Email</b></label>
     <input required ngModel name="email" 
     class="form-control" placeholder="Email" type="email">
@@ -22,7 +19,7 @@
     <input required ngModel #cnfPassword="ngModel"  
     name="cnfPassword" class="form-control" id="cnf-pass" 
     type="password" placeholder="Confirm Passord">
-     <div class="alert-danger" 
+     <div class="alert alert-danger credentials" 
      *ngIf="password.touched && cnfPassword.touched">
        <div *ngIf="password.value != cnfPassword.value"
        >Password dosen't match</div>

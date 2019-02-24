@@ -7,6 +7,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { FirestoreSettingsToken} from '@angular/fire/firestore';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,6 +36,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    FlashMessagesModule.forRoot(),
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase,'demoCRUD'),
     AngularFireAuthModule,
