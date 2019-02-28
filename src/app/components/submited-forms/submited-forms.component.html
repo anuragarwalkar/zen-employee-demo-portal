@@ -13,7 +13,7 @@
               <p><strong>Email:</strong>  {{employee.email}}</p>
               <P><strong>Mobile:</strong> {{employee.mobile}}</P>
               <p><strong>Address:</strong> {{employee.address}}</p>
-              <button class="btn btn-success btn-sm mr-2">Edit</button>
+              <button routerLink="/edituser/{{employee.id}}" class="btn btn-success btn-sm mr-2">Edit</button>
               <button (click)="onDelete(employee.id)" class="btn btn-danger btn-sm">Delete</button>
            </div>
         </div>

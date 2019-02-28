@@ -1,2 +1,116 @@
 <!-- app-login reuseable component -->
 <app-nav-bar></app-nav-bar>
+<!-- User registration form -->
+<div class="container">
+    <h2 class="text-center mt-2">Edit Employee Form</h2>
+    <a style="cursor:pointer;" routerLink="/zenhome"><i class="fa fa-arrow-circle-o-left"></i> Back to home</a>   
+    <hr>
+    <flash-messages></flash-messages>
+    <div class="card">
+        <div class="card-header">
+           Edit User       
+        </div>
+    <div class="card-body">
+    <form #userRegistrationForm="ngForm" 
+    (ngSubmit)="onUpdate(userRegistrationForm)">
+    <div class="form-group">
+        <label >First Name</label>
+        <input required type="text" #firstName="ngModel"
+        [ngClass]="{'is-invalid': firstName.errors && firstName.touched}" 
+        pattern="[a-zA-Z]*"
+        [(ngModel)]="user.firstName" name="firstName" 
+        class="form-control">
+    <div class="invalid-feedback">
+        <div *ngIf="firstName.errors?.required">First Name is required</div>
+        <div *ngIf="firstName.errors?.pattern">Numbers are special characters are not allowed</div>
+    </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input
+        required
+        pattern="[a-zA-Z]*"
+         #lastName="ngModel"
+        name="lastName"
+        [ngClass]="{'is-invalid': lastName.errors && lastName.touched}"  
+        [(ngModel)]="user.lastName" type="text" 
+        class="form-control">
+    
+        <div class="invalid-feedback">
+                <div *ngIf="lastName.errors?.required">Last Name is required</div>
+                <div *ngIf="lastName.errors?.pattern">Numbers are special characters are not allowed</div>
+            </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input #email="ngModel"
+        required
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+        [ngClass]="{'is-invalid': email.errors && email.touched}"
+        [(ngModel)]="user.email" 
+        name="email" type="text" 
+        class="form-control">
+    
+        <div class="invalid-feedback">
+                <div *ngIf="email.errors?.required">Email id is required</div>
+                <div *ngIf="email.errors?.pattern">Email id is not valid</div>
+            </div>
+    </div>
+    
+    <div class="form-group">
+    <label for="">Address</label>
+    <input required type="text" class="form-control"
+     name="address" #address="ngModel" 
+     [ngClass]="{'is-invalid': address.errors && address.touched}"
+     minlength="10"
+     [(ngModel)]="user.address">
+      
+     <div class="invalid-feedback">
+            <div *ngIf="address.errors?.required">Address is required</div>
+            <div *ngIf="address.error?.minlength">Address is not less than 10 charachters</div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="number">Mobile</label>
+        <input required 
+        #mobile="ngModel"
+        pattern="[0-9]*"
+        minlength="10"
+        maxlength="10"
+        name="mobile" 
+        [(ngModel)]="user.mobile" 
+        [ngClass]="{'is-invalid': mobile.errors && mobile.touched}"
+        type="text" 
+        class="form-control">
+    
+        <div class="invalid-feedback">
+                <div *ngIf="mobile.errors?.required">Mobile Number is required</div>
+                <div *ngIf="mobile.errors?.pattern || mobile.errors?.minlength">Please input 10 digit number</div>
+            </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="position">Position</label>
+        <select #position="ngModel" 
+        [(ngModel)]="user.position" 
+        name="position" class="form-control">
+            <option *ngFor="let position of positions" 
+            value="{{position.value}}">{{position.name}}</option>
+        </select>
+    </div>
+    <div class="radio">
+            <label for="agree">
+                <input required ngModel type="checkbox" name="hide">
+            I accept the <a href="https://www.zensar.com/privacy-policy" 
+            target="_blank">Terms of Service.</a>
+            </label>
+        </div>
+    
+      <input type="submit" value="Update Form" class="btn btn-success btn-block">  
+    </form>
+    </div>
+    </div>
+    </div>

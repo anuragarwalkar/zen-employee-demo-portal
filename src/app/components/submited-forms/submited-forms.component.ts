@@ -17,7 +17,9 @@ export class SubmitedFormsComponent implements OnInit{
   }
 
   onDelete(id:string){
-    console.log(id)
+    if(confirm('Are you sure')){
+      this.employeeService.deleteEmployee(id)
+    }
   }
 
   toggleDetails(employee:User){

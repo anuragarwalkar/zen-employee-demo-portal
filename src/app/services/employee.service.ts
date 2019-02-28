@@ -33,7 +33,35 @@ export class EmployeeService {
 
    }
 
+   getEmployee(id:string):Observable<User>{
+    this.employeeDoc = this.afs.doc<User>(`employees/${id}`);
+    this.employee = this.employeeDoc.snapshotChanges().pipe(
+      map(action =>{
+        if(action.payload.exists === false){
+          return null
+        }else{
+          const data = action.payload.data() as User;
+          data.id = action.payload.id;
+          return data
+        }
+      }) 
+    )
+    return this.employee
+   }
+
    addEmployee(employee:User){
      this.employeesCollection.add(employee);
+   }
+
+
+   updateEmployee(employee:User){
+    this.employeeDoc = this.afs.doc(`employees/${employee.id}`);
+    this.employeeDoc.update(employee)
+
+   }
+
+   deleteEmployee(id:string){
+     this.employeeDoc = this.afs.doc(`employees/${id}`);
+     this.employeeDoc.delete()
    }
 }
