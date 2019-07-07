@@ -50,7 +50,12 @@ export class EmployeeService {
    }
 
    addEmployee(employee:User){
-     this.employeesCollection.add(employee);
+     return new Promise((resolve, reject)=>{
+      this.employeesCollection.add(employee).then(
+        (data) => resolve(data), (error)=>reject(error)
+      )
+     })
+    
    }
 
 

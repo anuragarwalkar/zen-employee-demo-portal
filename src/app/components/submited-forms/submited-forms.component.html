@@ -20,7 +20,9 @@
      </div>
      <ng-template #noEmployess>
        <div class="text-center">
-            <img src="assets/images/throbber_12.gif" width="80" class="mt-4" alt="loader">
+            <img *ngIf="loaderGif" src="assets/images/throbber_12.gif" width="80" class="mt-4" alt="loader">
+            <span *ngIf="!loaderGif" class="text-danger mt-4">No Employees Please add new one</span>
        </div>
+
      </ng-template>
          </div>

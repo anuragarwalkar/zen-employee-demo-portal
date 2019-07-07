@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.authService.getAuth().subscribe(auth =>{
       if(auth){
         this.router.navigate(['/zenhome'])

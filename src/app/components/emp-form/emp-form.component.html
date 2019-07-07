@@ -71,7 +71,7 @@
   
  <div class="invalid-feedback">
         <div *ngIf="address.errors?.required">Address is required</div>
-        <div *ngIf="address.errors.minlength">Address is not less than 10 charachters</div>
+        <div *ngIf="address.errors?.minlength">Address is not less than 10 charachters</div>
     </div>
 </div>
 
@@ -90,7 +90,7 @@
 
     <div class="invalid-feedback">
             <div *ngIf="mobile.errors?.required">Mobile Number is required</div>
-            <div *ngIf="mobile.errors?.pattern || mobile.errors.minlength?.requiredLength">Please input 10 digit number</div>
+            <div *ngIf="mobile.errors?.pattern || mobile.errors?.minlength?.requiredLength">Please input 10 digit number</div>
         </div>
 </div>
 
@@ -111,7 +111,7 @@
         </label>
     </div>
 
-  <input type="submit" value="Submit" class="btn btn-primary btn-block">  
+  <input type="submit" [disabled]="userRegistrationForm.invalid" value="Submit" class="btn btn-primary btn-block">  
 </form>
 </div>
 </div>

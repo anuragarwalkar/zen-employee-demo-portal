@@ -11,6 +11,7 @@ export class SubmitedFormsComponent implements OnInit{
   showDetails:boolean = false;
   employees:User[];
   welcomeUser:string = 'Anurag';
+  loaderGif:boolean = true;
 
   constructor(private employeeService:EmployeeService){
 
@@ -26,9 +27,10 @@ export class SubmitedFormsComponent implements OnInit{
     employee.hide = !employee.hide
   }
   ngOnInit() {
-
+    
     this.employeeService.getEmployees().subscribe(res =>{
       this.employees = res;
+      this.loaderGif = false;
     })
     
   }

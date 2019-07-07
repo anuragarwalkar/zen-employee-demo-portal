@@ -43,19 +43,23 @@ export class EmpFormComponent implements OnInit {
   
 
   onSubmit({value, valid}: {value:User,valid:boolean}){
+    console.log(value,valid);
     if(!valid){
       this.flashMessage.show('Please fill out the form correctly', {
         cssClass: 'alert-danger', timeout:4000
       });
     }else{
 
-      this.employeeService.addEmployee(value);
+      this.employeeService.addEmployee(value).then(()=>{
+        this.flashMessage.show('New Employee added', {
+          cssClass:'alert-success', timeout:5000
+        });
 
-      this.flashMessage.show('New Employee added', {
-        cssClass:'alert-success', timeout:5000
+        this.router.navigate(['/zenhome']);
       });
 
-      // this.router.navigate(['/zenhome'])
+     
+
     }
   }
   

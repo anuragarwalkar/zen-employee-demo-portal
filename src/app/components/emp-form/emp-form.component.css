@@ -4,3 +4,7 @@ label::after{
     color:red;
 }
 
+:disabled{
+    cursor: not-allowed;
+}
+
